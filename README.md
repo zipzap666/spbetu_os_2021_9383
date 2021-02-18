@@ -13,7 +13,7 @@
 | 7    | Корсунов     | emptyfs                  |       |       |       |       |       |       |       |
 | 8    | Крейсманн    | kirill-1103              |       |       |       |       |       |       |       |
 | 9    | Лапина       | Anastasialapina          |       |       |       |       |       |       |       |
-| 10   | Лихашва      | NastyaLihashva           |       |       |       |       |       |       |       |
+| 10   | Лихашва      | NastyaLihashva           | 18.02 |       |       |       |       |       |       |
 | 11   | Лысова       | AlexandraLysova          |       |       |       |       |       |       |       |
 | 12   | Моисейченко  | Kirill-Mois              |       |       |       |       |       |       |       |
 | 13   | Мосин        |                          |       |       |       |       |       |       |       |
