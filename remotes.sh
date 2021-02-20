@@ -20,6 +20,8 @@ git remote add vasilysamulevich               https://github.com/vasilysamulevic
 git remote add sfpnmrnk                       https://github.com/sfpnmrnk/spbetu_os_2021_9383.git                 # Пономаренко
 git remote add sosedkov-kirill                https://github.com/sosedkov-kirill/spbetu_os_2021_9383.git          # Соседков
 git remote add KonstantinMosin                https://github.com/KonstantinMosin/spbetu_os_2021_9383.git          # Мосин
+git remote add NastyaLihashva                 https://github.com/NastyaLihashva/spbetu_os_2021_9383.git
+git remote add dmnistratov                    https://github.com/dmnistratov/spbetu_os_2021_9383.git
 #git remote add                                https://github.com//spbetu_os_2021_9383.git
 #git remote add                                https://github.com//spbetu_os_2021_9383.git
 #git remote add                                https://github.com//spbetu_os_2021_9383.git
