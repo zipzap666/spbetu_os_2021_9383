@@ -194,7 +194,7 @@ LOAD PROC
 	mov DS, AX
 	mov AH, 25h		 
 	mov AL, 1Ch         	
-    	int 21h
+    int 21h
 	pop ds
 	mov DX,offset LAST_BYTE
 	mov CL,4
@@ -232,11 +232,13 @@ MAIN PROC
 	je unload_point
 	cmp AX, 1
 	je end_point3
+
 load_point:
 	lea dx, message_1
 	call PRINT
 	call LOAD
 	jmp end_point
+
 unload_point:
 	cmp AX, 0
 	je end_point2
@@ -244,13 +246,16 @@ unload_point:
 	call PRINT
 	call UNLOAD
 	jmp end_point
+
 end_point3:
 	lea dx, message_3
 	call PRINT
 	jmp end_point
+
 end_point2:
 	lea dx, message_4
 	call PRINT
+	
 end_point:
 	xor AL, AL
 	mov AH, 4Ch
