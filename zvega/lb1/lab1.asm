@@ -6,14 +6,14 @@ AStack    ENDS
 DATA SEGMENT
     pc db 'IBM PC type: PC',0dh,0ah,'$'
     pc_xt db 'IBM PC type: PC/XT',0dh,0ah,'$'
-    at db 'IBM PC type: AT',0dh,0ah,'$'
+    at1 db 'IBM PC type: AT',0dh,0ah,'$'
     ps2_30 db 'IBM PC type: PS2 model 30',0dh,0ah,'$'
     ps2_50_60 db 'IBM PC type: PS2 model 30 or 50',0dh,0ah,'$'
     ps2_80 db 'IBM PC type: PS2 model 80',0dh,0ah,'$'
     pcjr db 'IBM PC type: PCjr',0dh,0ah,'$'
     pc_convertible db 'IBM PC type: PC Convertible',0dh,0ah,'$'
-    unknown db 'IBM PC type:    ',0dh,0ah,'$'
-    version db 'Version:  . ',0dh,0ah,'$'
+    unknown_pc db 'IBM PC type:    ',0dh,0ah,'$'
+    version_pc db 'Version:  . ',0dh,0ah,'$'
     oem db 'OEM:             ',0dh,0ah,'$'
     user_serial_number db 'User serial number:       ',0dh,0ah,'$'
 DATA ENDS
@@ -127,7 +127,7 @@ label_pc_xt:
     MOV dx,offset pc_xt
     JMP print_ibm_pc_version
 label_at:
-    MOV dx,offset at
+    MOV dx,offset at1
     JMP print_ibm_pc_version
 label_ps2_30:
     MOV dx,offset ps2_30  
@@ -146,9 +146,9 @@ label_pc_convertible:
     JMP print_ibm_pc_version
 label_unknown:
     CALL BYTE_TO_HEX
-    MOV di, offset unknown+13
+    MOV di, offset unknown_pc+13
     MOV [di], ax
-    MOV dx,offset unknown
+    MOV dx,offset unknown_pc
 
 
 print_ibm_pc_version:
@@ -160,14 +160,14 @@ print_ibm_pc_version:
     MOV ah, 30h
     INT 21h
 
-    MOV si, offset version+9
+    MOV si, offset version_pc+9
     CALL BYTE_TO_DEC
 
     MOV al, ah
-    MOV si, offset version+11
+    MOV si, offset version_pc+11
     CALL BYTE_TO_DEC
 
-    MOV dx, offset version
+    MOV dx, offset version_pc
     MOV ah,09h
     INT 21h
 

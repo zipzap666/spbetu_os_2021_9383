@@ -13,8 +13,8 @@ ps2_50_60 db 'IBM PC type: PS2 model 30 or 50',0dh,0ah,'$'
 ps2_80 db 'IBM PC type: PS2 model 80',0dh,0ah,'$'
 pcjr db 'IBM PC type: PCjr',0dh,0ah,'$'
 pc_convertible db 'IBM PC type: PC Convertible',0dh,0ah,'$'
-unknown db 'IBM PC type:    ',0dh,0ah,'$'
-version db 'Version:  . ',0dh,0ah,'$'
+unknown_pc db 'IBM PC type:    ',0dh,0ah,'$'
+version_pc db 'Version:  . ',0dh,0ah,'$'
 oem db 'OEM:             ',0dh,0ah,'$'
 user_serial_number db 'User serial number:       ',0dh,0ah,'$'
 
@@ -56,7 +56,7 @@ TETR_TO_HEX PROC near
 TETR_TO_HEX ENDP
 
 
-BYTE_TO_HEX_HEX PROC near
+BYTE_TO_HEX PROC near
     PUSH CX
     MOV AH,AL
     CALL TETR_TO_HEX
@@ -139,9 +139,9 @@ labeL_PC_convertible:
     JMP print_version
 label_unknown:
     CALL BYTE_TO_HEX
-    MOV di, offset unknown+13
+    MOV di, offset unknown_pc+13
     MOV [di], ax
-    MOV dx,offset unknown
+    MOV dx,offset unknown_pc
 
 
 print_version:
@@ -153,14 +153,14 @@ print_version:
     MOV ah, 30h
     INT 21h
 
-    MOV si, offset version+9
+    MOV si, offset version_pc+9
     CALL BYTE_TO_DEC
 
     MOV al, ah
-    MOV si, offset version+11
+    MOV si, offset version_pc+11
     CALL BYTE_TO_DEC
 
-    MOV dx, offset version
+    MOV dx, offset version_pc
     MOV ah,09h
     INT 21h
 
